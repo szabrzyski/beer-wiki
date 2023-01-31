@@ -12,16 +12,22 @@
                             <div class="col-12 ps-0 col-md-auto me-md-auto mb-3 mb-md-0">
                                 <a class="navbar-brand">Beer index</a>
                             </div>
-                            <div class="col-12 col-sm-4 ps-0 pe-0 mb-3 mb-sm-0">
+                            <div class="col-12 col-md-3 ps-0 pe-0 mb-3 mb-md-0">
                                 <input class="form-control" type="search" placeholder="Name">
                             </div>
-                            <div class="col-12 col-sm-2 ps-0 ps-sm-3 col-lg-1 pe-0 mb-3 mb-sm-0">
-                                <input class="form-control" type="search" placeholder="IBU">
+                            <div class="col-12 col-md-3 ps-0 ps-md-3 col-lg-2 pe-0 mb-3 mb-md-0">
+                                <div class="input-group">
+                                    <input class="form-control w-50" type="search" placeholder="IBU">
+                                    <select class="form-select w-50">
+                                        <option selected value="">GT</option>
+                                        <option value="">LT</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-6 col-sm-3 ps-0 ps-sm-3 col-md-auto pe-0">
+                            <div class="col-6 ps-0 ps-md-3 col-md-auto pe-0">
                                 <button class="btn btn-success w-100" type="submit">Search</button>
                             </div>
-                            <div class="col-6 col-sm-3 ps-sm-3 col-md-auto pe-0">
+                            <div class="col-6 ps-sm-3 col-md-auto pe-0">
                                 <button class="btn btn-secondary w-100" type="button">Reset</button>
                             </div>
                         </div>
