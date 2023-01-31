@@ -3,28 +3,52 @@
 
 <template>
     <div class="container py-3">
-        <header>
-            <nav class="navbar">
-                <div class="container-fluid">
-                    <div class="row w-100 justify-content-md-between">
-                        <div class="col-12 col-md-auto me-md-auto mb-3 mb-md-0">
-                            <a class="navbar-brand">Beer index</a>
+        <header class="my-2">
+            <nav class="navbar navbar-expand">
+                <div class="container">
+                    <ul class="navbar-nav d-flex justify-content-center w-100">
+                        <div
+                            class="row w-100 py-1 align-items-center d-flex justify-content-between justify-content-md-end">
+                            <div class="col-12 ps-0 col-md-auto me-md-auto mb-3 mb-md-0">
+                                <a class="navbar-brand">Beer index</a>
+                            </div>
+                            <div class="col-12 col-sm-4 ps-0 pe-0 mb-3 mb-sm-0">
+                                <input class="form-control" type="search" placeholder="Name">
+                            </div>
+                            <div class="col-12 col-sm-2 ps-0 ps-sm-3 col-lg-1 pe-0 mb-3 mb-sm-0">
+                                <input class="form-control" type="search" placeholder="IBU">
+                            </div>
+                            <div class="col-6 col-sm-3 ps-0 ps-sm-3 col-md-auto pe-0">
+                                <button class="btn btn-success w-100" type="submit">Search</button>
+                            </div>
+                            <div class="col-6 col-sm-3 ps-sm-3 col-md-auto pe-0">
+                                <button class="btn btn-secondary w-100" type="button">Reset</button>
+                            </div>
                         </div>
-                        <div class="col-12 col-sm-4 pe-0 mb-3 mb-sm-0">
-                            <input class="form-control" type="search" placeholder="Name">
-                        </div>
-                        <div class="col-12 col-sm-2 col-lg-1 pe-0 mb-3 mb-sm-0">
-                            <input class="form-control" type="search" placeholder="IBU">
-                        </div>
-                        <div class="col-6 col-sm-3 col-md-auto pe-0">
-                            <button class="btn btn-success w-100" type="submit">Search</button>
-                        </div>
-                        <div class="col-6 col-sm-3 col-md-auto pe-0">
-                            <button class="btn btn-secondary w-100" type="button">Reset</button>
-                        </div>
-                    </div>
+                    </ul>
                 </div>
             </nav>
         </header>
+        <main class="mt-4">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Beer name</h5>
+                                <div class="row mx-auto">
+                                    <div class="col-12 col-md-5 col-xl-6">
+                                        IBU: 100
+                                    </div>
+                                    <div class="col-12 col-md-7 col-xl-6">
+                                        FoodPairing: 100
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
 </template>
