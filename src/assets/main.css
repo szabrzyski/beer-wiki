@@ -3,3 +3,8 @@
 .pagination li {
     cursor: pointer;
 }
+
+.beer-image {
+    max-height: 300px;
+    max-width: 100%;
+}
