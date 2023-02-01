@@ -164,100 +164,96 @@ getBeers();
   <div class="container py-3">
     <header class="my-0 my-md-2">
       <nav class="navbar navbar-expand">
-        <div class="container">
-          <!-- Navigation bar -->
+        <!-- Navigation bar -->
 
-          <ul class="navbar-nav d-flex justify-content-center w-100">
+        <ul class="navbar-nav d-flex justify-content-center w-100">
+          <div
+            class="row w-100 py-1 align-items-center d-flex justify-content-between justify-content-md-end"
+          >
+            <div class="col-12 ps-0 col-md-auto me-md-auto mb-3 mb-md-0">
+              <a class="navbar-brand">Beer index</a>
+            </div>
+            <div class="col-12 col-md-3 ps-0 pe-0 mb-3 mb-md-0">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Name"
+                v-model.trim="beerName"
+              />
+            </div>
             <div
-              class="row w-100 py-1 align-items-center d-flex justify-content-between justify-content-md-end"
+              class="col-12 col-md-3 ps-0 ps-md-3 col-lg-2 pe-0 mb-3 mb-md-0"
             >
-              <div class="col-12 ps-0 col-md-auto me-md-auto mb-3 mb-md-0">
-                <a class="navbar-brand">Beer index</a>
-              </div>
-              <div class="col-12 col-md-3 ps-0 pe-0 mb-3 mb-md-0">
+              <div class="input-group">
                 <input
-                  class="form-control"
-                  type="text"
-                  placeholder="Name"
-                  v-model.trim="beerName"
+                  class="form-control w-50"
+                  type="number"
+                  placeholder="IBU"
+                  step="0.5"
+                  min="0"
+                  max="100"
+                  v-model.number="ibuFilterValue"
                 />
-              </div>
-              <div
-                class="col-12 col-md-3 ps-0 ps-md-3 col-lg-2 pe-0 mb-3 mb-md-0"
-              >
-                <div class="input-group">
-                  <input
-                    class="form-control w-50"
-                    type="number"
-                    placeholder="IBU"
-                    step="0.5"
-                    min="0"
-                    max="100"
-                    v-model.number="ibuFilterValue"
-                  />
-                  <select class="form-select w-50" v-model="ibuFilterType">
-                    <option value="ibu_gt">GT</option>
-                    <option value="ibu_lt">LT</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-6 ps-0 ps-md-3 col-md-auto pe-0">
-                <button
-                  class="btn btn-success w-100"
-                  type="submit"
-                  v-on:click="getBeers(1)"
-                  :disabled="loadingInProgress"
-                >
-                  Search
-                </button>
-              </div>
-              <div class="col-6 ps-sm-3 col-md-auto pe-0">
-                <button
-                  class="btn btn-secondary w-100"
-                  type="button"
-                  v-on:click="reset()"
-                  :disabled="loadingInProgress"
-                >
-                  Reset
-                </button>
+                <select class="form-select w-50" v-model="ibuFilterType">
+                  <option value="ibu_gt">GT</option>
+                  <option value="ibu_lt">LT</option>
+                </select>
               </div>
             </div>
-          </ul>
-        </div>
+            <div class="col-6 ps-0 ps-md-3 col-md-auto pe-0">
+              <button
+                class="btn btn-success w-100"
+                type="submit"
+                v-on:click="getBeers(1)"
+                :disabled="loadingInProgress"
+              >
+                Search
+              </button>
+            </div>
+            <div class="col-6 ps-sm-3 col-md-auto pe-0">
+              <button
+                class="btn btn-secondary w-100"
+                type="button"
+                v-on:click="reset()"
+                :disabled="loadingInProgress"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+        </ul>
       </nav>
     </header>
     <main class="mt-4">
-      <div class="container">
-        <!-- Beer listing -->
+      <!-- Beer listing -->
 
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-          <div
-            v-if="loadingInProgress || errorMessage || noBeersFound"
-            class="col"
-            v-html="
-              loadingInProgress
-                ? 'Please wait...'
-                : noBeersFound
-                ? 'No beers found'
-                : errorMessage
-            "
-          ></div>
-          <div v-else class="col" v-for="beer in beers.items" :key="beer.id">
-            <router-link
-              class="text-decoration-none link-dark"
-              :to="{
-                name: 'beerDetails',
-                params: { beerId: beer.id },
-                query: { redirect: route.fullPath },
-              }"
-            >
-              <BeerItem :beer="beer" />
-            </router-link>
-          </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+        <div
+          v-if="loadingInProgress || errorMessage || noBeersFound"
+          class="col"
+          v-html="
+            loadingInProgress
+              ? 'Please wait...'
+              : noBeersFound
+              ? 'No beers found'
+              : errorMessage
+          "
+        ></div>
+        <div v-else class="col" v-for="beer in beers.items" :key="beer.id">
+          <router-link
+            class="text-decoration-none link-dark"
+            :to="{
+              name: 'beerDetails',
+              params: { beerId: beer.id },
+              query: { redirect: route.fullPath },
+            }"
+          >
+            <BeerItem :beer="beer" />
+          </router-link>
         </div>
-
-        <PaginationBar v-on:paginate="getBeers" :current-page="currentPage" />
       </div>
+
+      <PaginationBar v-on:paginate="getBeers" :current-page="currentPage" />
     </main>
   </div>
 </template>
