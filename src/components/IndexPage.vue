@@ -162,7 +162,7 @@ getBeers();
 
 <template>
   <div class="container py-3">
-    <header class="my-2">
+    <header class="my-0 my-md-2">
       <nav class="navbar navbar-expand">
         <div class="container">
           <!-- Navigation bar -->
