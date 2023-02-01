@@ -3,8 +3,12 @@
 // Props
 
 const props = defineProps({
-    currentPage: Number,
+    currentPage: [Number, String],
 });
+
+// Data
+
+const pageLimit = 4;
 
 // Emits
 
@@ -27,8 +31,7 @@ const emit = defineEmits(['paginate']);
 
                     <!-- Pagination Elements -->
 
-                    <template v-for="pageNumber in 4" :value="pageNumber" :key="pageNumber">
-
+                    <template v-for="pageNumber in pageLimit" :value="pageNumber" :key="pageNumber">
                         <li v-if="pageNumber >= 0 && pageNumber == props.currentPage" class="page-item active"><span
                                 class="page-link">{{
                                     pageNumber
@@ -38,12 +41,11 @@ const emit = defineEmits(['paginate']);
                                 pageNumber
                             }}</a>
                         </li>
-
                     </template>
 
                     <!-- Next Page Link -->
 
-                    <li class="page-item" :class="{ disabled: props.currentPage == 4 }">
+                    <li class="page-item" :class="{ disabled: props.currentPage == pageLimit }">
                         <a class="page-link" v-on:click="emit('paginate', props.currentPage + 1)"
                             rel="next">&rsaquo;</a>
                     </li>
