@@ -1,6 +1,6 @@
 # Beer wiki
 
-Frontend coding asignment made with Vue 3.
+Frontend coding asignment made in Vue 3.
 
 ## Technologies used
 
